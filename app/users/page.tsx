@@ -4,6 +4,7 @@ import React from 'react'
 interface user {
   id: number;
   name: string;
+  email:string;
 }
 
 const UsersPage = async () => {
@@ -15,10 +16,20 @@ const UsersPage = async () => {
   return (
     <div>
       <h1>Users</h1>
-      <p>{new Date().toLocaleTimeString()}</p>
-      <ul>
-        {users.map(user => <li key = {user.id}>{user.name}</li>)}
-      </ul>
+      {/* <p>{new Date().toLocaleTimeString()}</p> */}
+      <table className='table table-bordered'>
+        <thead>
+          <tr>
+            <th>name </th>
+            <th>email </th>
+          </tr>
+        </thead>
+        {users.map(user => <tr key = {user.id}>
+          
+          <td>{user.name}</td>
+          <td>{user.email}</td>
+          </tr>)}
+      </table>
       <p>users page</p>
     </div>
   )
